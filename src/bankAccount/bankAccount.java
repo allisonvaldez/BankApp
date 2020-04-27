@@ -5,14 +5,33 @@ import java.util.Scanner;
 public class bankAccount {
 
 	public static void main(String[] args) {
-		Scanner in = new Scanner(System.in); // to get user input
+		bankAccount bankaccount = new bankAccount(); // creates a new instance of the program
+		bankaccount.runApp(); // run the app using the run app method
+	}
+	
+	public void runApp() {
+		printHeader();
+		
+	}
+	
+		
+	    Scanner in = new Scanner(System.in); // to get user input
 		int userChoice; // the userChoice is declared as an int
 		boolean quit = false; // the default of quitting the app is set to false
 		float balance = 0; // initialize balance as a global variance 
 		
+		private void printHeader() {
+			System.out.println("\n");
+			System.out.println("+---------------------------------+");
+			System.out.println("|            Welcome to           |");
+			System.out.println("|      The Banking Application    |");
+			System.out.println("+---------------------------------+");
+			System.out.println("\n");
+		}
+		
 		// make a do while loop for selection choices (main logic of the app)
 		do { 
-			System.out.println("\nSelect 0 to exit.");
+			System.out.println("Select 0 to exit.");
 			System.out.println("Select 1 to deposit money."); // prints the instructions to the screen
 			System.out.println("Select 2 to withdraw money:");
 			System.out.println("Select 3 to check your balance:");
@@ -29,11 +48,20 @@ public class bankAccount {
 				case 1:
 					// deposit money logic
 					float amount; // instantiate the amount variable as a float
-					System.out.println("Enter your deposit amount: "); // print instructions to the user
+					System.out.println("\nEnter your deposit amount: "); // print instructions to the user
 					amount = in.nextFloat(); // gets input from the user as an int and saves it to the amount variable
-					balance = balance += amount; // takes the original balance and increments new balance amount from deposit
-					System.out.println("Deposit of " + amount + " made.");
-					System.out.println("Balance of " + balance);
+					
+					// prevent users from entering a negative amount for deposit
+					if (amount >= 0) {
+						balance = balance += amount; // takes the original balance and increments new balance amount from deposit
+						System.out.println("Deposit of " + amount + " made.");
+						System.out.println("Balance of" + balance);
+					}
+					else {
+						System.out.println("\nPlease enter a deposit amount greater than 0.");
+						System.out.println("\nReturn to the main menu to make a selection: ");
+					}
+					
 					
 					break;
 					
@@ -59,7 +87,6 @@ public class bankAccount {
 					break;
 			}
 		}
-		while(!quit);
-			System.out.println("\nBye for now!");
 	}
+
 }
