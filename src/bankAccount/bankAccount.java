@@ -32,16 +32,24 @@ public class bankAccount {
 					System.out.println("Enter your deposit amount: "); // print instructions to the user
 					amount = in.nextFloat(); // gets input from the user as an int and saves it to the amount variable
 					balance = balance += amount; // takes the original balance and increments new balance amount from deposit
-					System.out.println("Deposit of " + balance + " made.");
+					System.out.println("Deposit of " + amount + " made.");
+					System.out.println("Balance of " + balance);
+					
 					break;
 					
 				case 2:
 					// withdraw money logic
-						
+					System.out.println("Enter your withdraw amount: ");
+					amount = in.nextFloat(); //gathers input from user as an int
+					balance = balance -= amount; 
+					System.out.println("Withdraw of: " + amount + " made.");
+					System.out.println("Balance of: " + balance);
+					
 					break;
 					
 				case 3:
-					// check balance logic 
+					//  display balance logic 
+					System.out.println("You have a balance of: " + balance);
 					
 					break;
 				
