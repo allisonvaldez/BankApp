@@ -8,7 +8,10 @@ public class bankAccount {
 		Scanner in = new Scanner(System.in); // to get user input
 		int userChoice; // the userChoice is declared as an int
 		boolean quit = false; // the default of quitting the app is set to false
-		do { // make a do while loop for if the user wants to quit
+		float balance = 0; // initialize balance as a global variance 
+		
+		// make a do while loop for selection choices (main logic of the app)
+		do { 
 			System.out.println("\nSelect 0 to exit.");
 			System.out.println("Select 1 to deposit money."); // prints the instructions to the screen
 			System.out.println("Select 2 to withdraw money:");
@@ -25,7 +28,11 @@ public class bankAccount {
 				
 				case 1:
 					// deposit money logic
-					
+					float amount; // instantiate the amount variable as a float
+					System.out.println("Enter your deposit amount: "); // print instructions to the user
+					amount = in.nextFloat(); // gets input from the user as an int and saves it to the amount variable
+					balance = balance += amount; // takes the original balance and increments new balance amount from deposit
+					System.out.println("Deposit of " + balance + " made.");
 					break;
 					
 				case 2:
