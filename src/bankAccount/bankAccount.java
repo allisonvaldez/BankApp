@@ -9,11 +9,10 @@ public class bankAccount {
 		int userChoice; // the userChoice is declared as an int
 		boolean quit = false; // the default of quitting the app is set to false
 		do { //make a do while loop for if the user wants to quit
-			System.out.println("Select 0 to exit. "); // prints the instructions to the screen
-			userChoice = in.nextInt(); //takes user input as an int and throws an error if is isnt
-			if (userChoice == 0) {
-				quit = true; // if user selects 0 quit the program
-			}
+			System.out.println("Select 1 to deposit money: "); // prints the instructions to the screen
+			System.out.println("Select 2 to withdraw money: ");
+			System.out.println("Select 3 to check your balance: ");
+			System.out.println("Select 0 to exit: ");
 		}
 		while(!quit);
 
