@@ -32,8 +32,8 @@ public class bankAccount {
 				// prevent users from entering a negative amount for deposit
 				if (amount >= 0) {
 					balance = balance += amount; // takes the original balance and increments new balance amount from deposit
-					System.out.println("Deposit of " + amount + " made.");
-					System.out.println("Balance of" + balance);
+					System.out.println("\nDeposit of " + amount + " made.");
+					System.out.println("\nBalance of " + balance);
 				}
 				else {
 					System.out.println("\nPlease enter a deposit amount greater than 0.");
@@ -46,13 +46,13 @@ public class bankAccount {
 				System.out.println("Enter your withdraw amount: ");
 				amount = input.nextFloat(); //gathers input from user as an int
 				balance = balance -= amount; 
-				System.out.println("Withdraw of: " + amount + " made.");
-				System.out.println("Balance of: " + balance);
+				System.out.println("\nWithdraw of: " + amount + " made.");
+				System.out.println("\nBalance of: " + balance);
 			break;
 			
 			case 3:
 				//  display balance logic 
-				System.out.println("You have a balance of: " + balance);
+				System.out.println("\nYou have a balance of: " + balance);
 			break;
 		
 			default: 
@@ -74,10 +74,11 @@ public class bankAccount {
 	}
 	
 	private static void printMenu() {
-		System.out.println("Select 0 to exit.");
+		System.out.println("\nSelect 0 to exit.");
 		System.out.println("Select 1 to deposit money."); // prints the instructions to the screen
 		System.out.println("Select 2 to withdraw money:");
 		System.out.println("Select 3 to check your balance:");
+		System.out.println("");
 	}
 	  
 }
