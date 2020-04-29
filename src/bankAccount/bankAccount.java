@@ -7,62 +7,17 @@ public class bankAccount {
 	
 
 	public static void main(String[] args) {
-		bankAccount bankaccount = new bankAccount(); // creates a new instance of the program
-		bankaccount.runApp(); // run the app using the run app method
-	}
-	
-	boolean quit = false; // the default of quitting the app is set to false
-	
-	public void runApp() { //actual code & logic of the app
+		Scanner input = new Scanner(System.in); // to get user input
+		int userChoice; // the userChoice is declared as an int
+		boolean quit = false; // the default of quitting the app is set to false
+		float balance = 0; // initialize balance as a global variance 
 		printHeader();
 		
-		while(!quit) { // while quit is not selected do *something*
+		do {
 			printMenu();
-			int userChoice = userSelection();
-			runSelectionChoice(userChoice);
+			userChoice = input.nextInt(); // grabs input from user as an int
 			
-		}	
-	}
-	
-	private void printHeader() {
-		System.out.println("\n");
-		System.out.println("+---------------------------------+");
-		System.out.println("|            Welcome to           |");
-		System.out.println("|      The Banking Application    |");
-		System.out.println("+---------------------------------+");
-		System.out.println("\n");
-	}
-	
-	private void printMenu() {
-		System.out.println("Select 0 to exit.");
-		System.out.println("Select 1 to deposit money."); // prints the instructions to the screen
-		System.out.println("Select 2 to withdraw money:");
-		System.out.println("Select 3 to check your balance:");
-	}
-	
-	private int userSelection() {
-		Scanner input = new Scanner(System.in); // to get user input
-		int userChoice = -1;; // the userChoice is declared as an int
-		float balance = 0; // initialize balance as a global variance 
-		
-		//logic for when the user tries to enter something other than an int
-		while (userChoice < 0 || userChoice > 3) {
-			try {
-				System.out.println("Please make a selection from 0-1: ");
-				userChoice = Integer.parseInt(input.nextLine()); // save user's input into the userChoice variable but parse it as an int
-			}
-			catch (NumberFormatException e){ // thrown error if invalid entry is made
-				System.out.println("An unknown error has occured. Please make a selection between 0-3: ");
-			}
-		}
-		return userChoice;
-	
-	}
-	
-	private void runSelectionChoice(int userChoice) {// code for main menu selection
-		float balance = 0;
-		
-		switch(userChoice) {
+			switch(userChoice) {
 			case 0: // quit the game
 				quit = true; // need the boolean of quit to be true here to stop the game
 				System.out.println("\nThank you for using the app!");
@@ -89,7 +44,7 @@ public class bankAccount {
 			case 2:
 				// withdraw money logic
 				System.out.println("Enter your withdraw amount: ");
-				amount = in.nextFloat(); //gathers input from user as an int
+				amount = input.nextFloat(); //gathers input from user as an int
 				balance = balance -= amount; 
 				System.out.println("Withdraw of: " + amount + " made.");
 				System.out.println("Balance of: " + balance);
@@ -104,7 +59,25 @@ public class bankAccount {
 				// to catch any errors should never get this due to logic
 				System.out.println("\nAn unknown error has occured. Please make a selection between 0-3: ");
 				break;
-		}	
+			}	
+		}
+		while (!quit);  // while quit is not selected do *something*
+	}
+		
+	private static void printHeader() {
+		System.out.println("\n");
+		System.out.println("+---------------------------------+");
+		System.out.println("|            Welcome to           |");
+		System.out.println("|      The Banking Application    |");
+		System.out.println("+---------------------------------+");
+		System.out.println("\n");
+	}
+	
+	private static void printMenu() {
+		System.out.println("Select 0 to exit.");
+		System.out.println("Select 1 to deposit money."); // prints the instructions to the screen
+		System.out.println("Select 2 to withdraw money:");
+		System.out.println("Select 3 to check your balance:");
 	}
 	  
 }
