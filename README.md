@@ -1,4 +1,4 @@
-# Simple Banking Application
+# Banking Application
 
 I implemented what I learned reading Java: The complete Reference Eleventh Edition, and followed along with various video tutorials to make a game application. This project is meant for me to grasp terminology, and gain hands on experience using Eclipse. I wanted to learn, and observe, the JVM and JRE in action.
 
